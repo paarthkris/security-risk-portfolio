@@ -1,0 +1,7 @@
+timestamp,user,event,location,device,result,notes
+2026-07-09 09:04:12,maya.chen@harborpay.example,Okta login,"Boston, MA","Known MacBook / Chrome",Success,"Normal workday login"
+2026-07-09 09:07:33,maya.chen@harborpay.example,Google Workspace access,"Boston, MA","Known MacBook / Chrome",Success,"Expected post-login activity"
+2026-07-09 09:22:08,maya.chen@harborpay.example,Okta login attempt,"Unusual foreign location","Unknown browser/device",Failed,"Suspicious login attempt"
+2026-07-09 09:23:01,maya.chen@harborpay.example,MFA challenge,"Unusual foreign location","Unknown browser/device",Failed,"MFA challenge not completed"
+2026-07-09 09:31:45,maya.chen@harborpay.example,Admin Dashboard access,"Boston, MA","Known MacBook / Chrome",Denied,"User does not normally need admin dashboard access"
+2026-07-09 09:34:18,maya.chen@harborpay.example,Okta risk alert,System,N/A,Generated,"Unusual location and failed MFA"
