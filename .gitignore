@@ -1,0 +1,12 @@
+# Local/vendor tooling
+wazuh-docker/
+node_modules
+node_modules/
+/node_modules
+
+# Prior recruiting research outputs from this workspace
+outputs/
+work/
+
+# macOS metadata
+.DS_Store
