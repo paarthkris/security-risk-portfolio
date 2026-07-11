@@ -1,96 +1,74 @@
 # HarborPay Security Risk Portfolio
 
-## Project Overview
+HarborPay is a fictional Boston fintech company I created as a learning environment for cybersecurity, GRC, IAM, security monitoring, secure application design, and AI governance.
 
-This is a cybersecurity and GRC portfolio project built around **HarborPay**, a fictional Boston-based fintech company.
+I am building this portfolio as a Northeastern student who is still developing hands-on experience. The completed documents show how I approach assets, risks, controls, evidence, and business impact. The technical folders show what I have set up, what I have not completed yet, and what I plan to build myself.
 
-I am using HarborPay as a realistic practice environment to learn how security risk, business systems, technical controls, logs, vendors, and application security connect.
+This is not a real audit, and none of the fictional findings describe Stripe, Okta, AWS, or any other real company. Simulated evidence and unverified assumptions are labeled throughout the repository.
 
-The goal of this project is not to pretend I audited a real company. The goal is to build a portfolio that shows how I think through security problems and how I am developing hands-on skills across GRC, IAM, security monitoring, Java application security, and AI-assisted risk work.
+## Start Here
 
-## What I Am Building
+Read [PROJECT_ROADMAP.md](PROJECT_ROADMAP.md) for the current project status, build order, interview goals, and detailed checklist.
 
-The project has two layers:
+## Suggested Reading
 
-### 1. Security and GRC Documentation
-
-These files create the business and risk context:
-
-- [Asset Inventory](asset-inventory.md)
-- [Risk Register](risk-register.md)
-- [Control Mapping](control-mapping.md)
-- [Stripe Vendor Risk Review](vendor-risk-questionnaire-stripe.md)
-- [Executive Summary](executive-summary.md)
-
-### 2. Technical Labs and Builds
-
-These are the main hands-on parts of the project:
-
-- [IAM Investigation Lab Plan](iam-investigation-lab-plan.md)
-- [Wazuh Homelab Plan](wazuh-homelab-plan.md)
-- [Secure Java App Plan](secure-java-app-plan.md)
-- [AI GRC n8n Workflow Plan](ai-grc-n8n-workflow-plan.md)
-- [Technical Build Roadmap](technical-build-roadmap.md)
-
-## Fictional Company: HarborPay
-
-HarborPay is a fictional fintech startup with about 120 employees. It helps small businesses accept payments, manage invoices, and view customer transaction activity.
-
-The company uses common modern tools:
-
-- Okta
-- Google Workspace
-- AWS
-- GitHub
-- Stripe
-- Employee MacBooks
-- Wazuh
-
-## Main Learning Goals
-
-By building this project, I want to become stronger at:
-
-- Identifying important business and technical assets
-- Turning assets into realistic security risks
-- Mapping risks to controls and evidence
-- Understanding IAM and suspicious login investigations
-- Setting up and using Wazuh for security monitoring
-- Building a secure Java app with basic RBAC and logging
-- Using AI and n8n to support GRC workflows with human review
-- Explaining technical security issues in business language
-
-## Interview Positioning
-
-This project is designed to support roles like:
-
-- Cybersecurity intern
-- GRC intern
-- Technology risk intern
-- IT audit intern
-- IAM intern
-- Security operations intern
-- Business technology intern
-- AI governance or AI risk intern
-
-My positioning:
-
-> I built a security risk portfolio around a fictional fintech company. I started by identifying critical assets and risks, then built hands-on labs around IAM investigation, security monitoring, secure Java application design, and AI-assisted GRC workflows. The project helped me understand how technical controls, business risk, and evidence collection connect in real security work.
-
-## Current Status
-
-| Area | Status |
+| Reader or goal | Best path |
 |---|---|
-| Asset inventory | Draft complete |
-| Risk register | Draft complete |
-| Control mapping | Draft complete |
-| Vendor risk review | Draft complete |
-| Executive summary | Draft complete |
-| IAM lab | Planned |
-| Wazuh lab | Planned |
-| Secure Java app | Planned |
-| AI GRC n8n workflow | Planned |
+| One-minute overview | This README, then the [executive summary](02-risk-and-controls/executive-summary.md) |
+| GRC or technology-risk review | [Risk register](02-risk-and-controls/risk-register.md), [control mapping](02-risk-and-controls/control-mapping.md), and [vendor review](03-vendor-risk/stripe-pre-assessment.md) |
+| Security or technical review | [Wazuh setup notes](05-wazuh-homelab/setup-notes.md), [Java design](06-secure-java-app/), and [local AI design](07-local-ai-grc-assistant/) |
+| Current progress and next steps | [Project roadmap](PROJECT_ROADMAP.md) |
 
-## Next Build Step
+## Repository Guide
 
-The next major step is to begin the technical labs, starting with the **IAM Investigation Lab** and **Wazuh Homelab**.
+| Section | Purpose | Current State |
+|---|---|---|
+| [01 - Company Context](01-company-context/) | HarborPay profile, scope, assumptions, and asset inventory | Documentation complete |
+| [02 - Risk and Controls](02-risk-and-controls/) | Risk register, NIST CSF 2.0/CIS Controls mapping, and executive summary | Documentation complete |
+| [03 - Vendor Risk](03-vendor-risk/) | Simulated Stripe pre-assessment and evidence request plan | Documentation complete |
+| [04 - IAM Investigation](04-iam-investigation/) | Simulated identity case study plus future hands-on lab plan | Tabletop complete; technical lab pending |
+| [05 - Wazuh Homelab](05-wazuh-homelab/) | Local SIEM setup evidence and guided investigation plan | Setup complete; investigations pending |
+| [06 - Secure Java App](06-secure-java-app/) | Access Request Tracker design and security requirements | Specification complete; code pending |
+| [07 - Local AI GRC Assistant](07-local-ai-grc-assistant/) | Local-model architecture, output schema, tests, and human review | Specification complete; build pending |
+| [08 - Report Templates](08-report-templates/) | Consistent templates for labs, evidence, and alert triage | Ready to use |
+| [Sources](SOURCES.md) | Primary references used across the project | Maintained |
 
+## What This Project Demonstrates
+
+- Translating business systems into specific security risks
+- Prioritizing risk with a documented scoring method
+- Mapping risks to NIST CSF 2.0 and CIS Controls v8.1
+- Defining evidence that could validate a control
+- Separating assumptions from verified technical evidence
+- Explaining findings in language useful to both technical and business teams
+- Planning hands-on work without claiming results before they exist
+
+## Technical Build Path
+
+The hands-on work will be completed in this order:
+
+1. Generate and investigate controlled Wazuh events.
+2. Rebuild the IAM scenario with real lab-generated evidence.
+3. Build the Java Access Request Tracker.
+4. Build the local AI GRC assistant with Ollama-compatible models.
+5. Replace templates and sample data with screenshots, commands, logs, tests, and reflections from my own work.
+
+## Honest Status Statement
+
+The documentation foundation and simulated IAM tabletop are complete. I also installed Wazuh locally through Docker and connected my Mac as an endpoint. I have not yet completed the alert investigations, Java application, or local AI assistant. Those are the technical parts I will build and learn step by step.
+
+## Target Roles
+
+This project is designed to support internship and co-op applications in:
+
+- Cybersecurity
+- GRC and technology risk
+- IAM
+- Security operations
+- IT audit and risk advisory
+- Business technology
+- AI governance and AI risk
+
+## Short Explanation
+
+> I built a security risk portfolio around HarborPay, a fictional fintech company. I completed the business context, asset, risk, control, and vendor-risk documentation, then used that foundation to plan hands-on labs in IAM, Wazuh, secure Java development, and local AI governance. I clearly separate simulated analysis from technical work I have personally completed so I can explain every part honestly in an interview.
