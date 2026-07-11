@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://harborpay.example/schemas/ai-grc-draft-v1.json",
+  "title": "HarborPay AI GRC Draft",
+  "description": "Structured, human-reviewed draft produced from allowlisted HarborPay learning materials.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "input_type",
+    "summary",
+    "assets",
+    "risk_statements",
+    "control_mappings",
+    "evidence_requests",
+    "recommendations",
+    "assumptions",
+    "uncertainties",
+    "source_ids",
+    "human_review_required"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{2,49}$"
+    },
+    "input_type": {
+      "type": "string",
+      "enum": ["incident", "vendor_review", "control_review", "other"]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "assets": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "asset_name", "source_refs"],
+        "properties": {
+          "asset_id": {
+            "type": ["string", "null"],
+            "maxLength": 80
+          },
+          "asset_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "risk_statements": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["risk_id", "statement", "likelihood", "impact", "rationale", "source_refs"],
+        "properties": {
+          "risk_id": {
+            "type": ["string", "null"],
+            "maxLength": 80
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "likelihood": {
+            "$ref": "#/$defs/rating"
+          },
+          "impact": {
+            "$ref": "#/$defs/rating"
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 800
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "control_mappings": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["framework", "reference", "rationale", "source_refs"],
+        "properties": {
+          "framework": {
+            "type": "string",
+            "enum": ["NIST CSF 2.0", "CIS Controls v8.1", "OWASP ASVS", "Other"]
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "evidence_requests": {
+      "type": "array",
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["evidence", "purpose", "source_refs"],
+        "properties": {
+          "evidence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["priority", "action", "rationale", "owner", "source_refs"],
+        "properties": {
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 700
+          },
+          "owner": {
+            "type": ["string", "null"],
+            "maxLength": 120
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9_.-]{1,79}$"
+      }
+    },
+    "human_review_required": {
+      "const": true
+    }
+  },
+  "$defs": {
+    "rating": {
+      "type": "string",
+      "enum": ["low", "moderate", "high", "critical", "not_enough_information"]
+    },
+    "sourceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9_.-]{1,79}$"
+      }
+    }
+  }
+}
