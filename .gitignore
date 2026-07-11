@@ -10,3 +10,24 @@ work/
 
 # macOS metadata
 .DS_Store
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+private/
+**/evidence/raw/
+**/evidence/private/
+
+# Future Java and Python build output
+target/
+.gradle/
+build/
+.venv/
+__pycache__/
+*.pyc
